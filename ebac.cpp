@@ -19,7 +19,7 @@ int registro()//função responsavel por cadastrar os usuarios no sistema
 	strcpy(arquivo, cpf); //Responsavel por copiar os valores das string
 	
 	FILE *file; // cria o arquivo
-	file = fopen(arquivo, "w"); //cria o arquivo
+	file = fopen(arquivo, "w"); //cria o arquivo e o "w" significa escrever
 	fprintf(file,cpf); //salva o valor da variavel
 	fclose(file); //fecha o arquivo
 	
@@ -114,7 +114,7 @@ int deletar()
 	
 int main()
 	{
-	int opcao=0; 
+	int opcao=0; //Definindo variáveis
 	int laco=1;
 	char senhadigitada[]="a";
 	int comparacao;
@@ -134,13 +134,14 @@ int main()
 
 			
 
-			setlocale(LC_ALL, "Portuguese");
+			setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
 			
 			printf("### Cartorio da EBAC ###\n\n");//inicio do menu 
 			printf("Escolha a opção desejada do menu\n\n");
 			printf("\t1 - Registrar nomes\n");
 			printf("\t2 - Consultar nomes\n");
 			printf("\t3 - Deletar nomes\n\n"); 
+			printf("\t4 - Sair do sistema\n\n"); 
 			printf("Digite a opção: "); //fim do menu
 				
 			scanf("%d", &opcao); //armazenando a escolha do usuario
@@ -150,7 +151,7 @@ int main()
 			switch(opcao)//inicio da seleção
 			{
 				case 1:
-				registro();//chamada de funções			break;
+				registro();//chamada de funções
 			
 				case 2:
 				consulta();
@@ -158,6 +159,11 @@ int main()
 		
 				case 3:
 				deletar();
+				break;
+				
+				case 4:
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0;
 				break;
 		
 				default:
